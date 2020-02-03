@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SwampApp</string>
+    <string name="stringSearchDevice">Procurando Dispositivo</string>
+    <string name="textDevicesList">Lista de Dispositivos</string>
+    <string name="txtTerminal">Terminal</string>
+    <string name="btnSend">Enviar</string>
+</resources>
