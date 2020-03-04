@@ -119,10 +119,14 @@ public class MainActivity extends AppCompatActivity {
             }
 
             //Checa a permissão de localização que é necessária para o BluetoothLE
-            int permissionCheck = this.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION);
-            if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
-                requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            int permissionCheck = 0;
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
+                permissionCheck = this.checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION);
+                if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
+                    requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+                }
             }
+
         } else {
             Toast.makeText(getApplicationContext(), "Adaptador Bluetooth não encontrado", Toast.LENGTH_SHORT).show();
             finish();
